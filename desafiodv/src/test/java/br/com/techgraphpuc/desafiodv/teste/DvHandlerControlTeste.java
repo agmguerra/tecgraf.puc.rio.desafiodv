@@ -9,9 +9,9 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import br.com.techgraph.desafiodv.enumerator.ParameterStatusEnum;
 import br.com.techgraphpuc.desafiodv.DvHandlerControl;
 import br.com.techgraphpuc.desafiodv.Parameter;
+import br.com.techgraphpuc.desafiodv.enumerator.ParameterStatusEnum;
 
 /**
  * Classe de teste do controlador do processmento de dv's

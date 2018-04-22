@@ -1,4 +1,4 @@
-package br.com.techgraph.desafiodv.enumerator;
+package br.com.techgraphpuc.desafiodv.enumerator;
 
 /**
  * Enumerator para definir os possíveis erros nos parâmetros na

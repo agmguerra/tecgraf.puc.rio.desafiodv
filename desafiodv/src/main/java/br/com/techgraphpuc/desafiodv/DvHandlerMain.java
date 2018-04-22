@@ -1,6 +1,6 @@
 package br.com.techgraphpuc.desafiodv;
 
-import br.com.techgraph.desafiodv.enumerator.ParameterStatusEnum;
+import br.com.techgraphpuc.desafiodv.enumerator.ParameterStatusEnum;
 
 /**
  * Classe principal para iniciar o processamento dos dv's
