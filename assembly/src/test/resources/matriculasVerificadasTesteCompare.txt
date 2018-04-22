@@ -1,0 +1,5 @@
+1230-6 verdadeiro
+2103-4 verdadeiro
+2507-D falso
+3514-F falso
+3866-E falso

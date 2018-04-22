@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import br.com.tecgraf.puc.rio.desafiodv.Matricula;
+import br.com.techgraphpuc.desafiodv.Matricula;
 
 /**
  * Classe de teste das operações de matricula
