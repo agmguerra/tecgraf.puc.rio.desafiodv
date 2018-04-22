@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import br.com.techgraphpuc.desafiodv.Parameter;
-import br.com.techgraphpuc.desafiodv.enumerator.ParameterStatusEnum;
+import br.com.tecgraf.puc.rio.desafiodv.Parameter;
+import br.com.tecgraf.puc.rio.desafiodv.enumerator.ParameterStatusEnum;
 
 /**
  * 

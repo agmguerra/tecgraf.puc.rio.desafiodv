@@ -1,4 +1,4 @@
-package br.com.techgraphpuc.desafiodv;
+package br.com.tecgraf.puc.rio.desafiodv;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

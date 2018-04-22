@@ -1,11 +1,11 @@
-package br.com.techgraphpuc.desafiodv;
+package br.com.tecgraf.puc.rio.desafiodv;
 
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import br.com.techgraphpuc.desafiodv.enumerator.ParameterStatusEnum;
+import br.com.tecgraf.puc.rio.desafiodv.enumerator.ParameterStatusEnum;
 
 /**
  * Classe que representa os parâmetros informados para o processamento
