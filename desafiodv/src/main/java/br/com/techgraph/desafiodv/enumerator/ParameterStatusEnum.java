@@ -1,5 +1,10 @@
 package br.com.techgraph.desafiodv.enumerator;
 
+/**
+ * Enumerator para definir os possíveis erros nos parâmetros na
+ * chamada do processament dos dv's
+ *
+ */
 public enum ParameterStatusEnum {
 	
 	PARAMETERS_OK(0, ""),

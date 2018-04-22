@@ -3,7 +3,9 @@ package br.com.techgraphpuc.desafiodv;
 import br.com.techgraph.desafiodv.enumerator.ParameterStatusEnum;
 
 /**
- * Hello world!
+ * Classe principal para iniciar o processamento dos dv's
+ * Esta classe é apenas o ponto inicial. Ela delega para outras
+ * o processmento soliciado
  *
  */
 public class DvHandlerMain 
@@ -23,7 +25,13 @@ public class DvHandlerMain
     }
 
 	private static void processaComando(Parameter param) {
-		// TODO Auto-generated method stub
+		DvHandlerControl control = new DvHandlerControl();
+		try {
+			control.execute(param);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			System.exit(-999);
+		}
 		
 	}
 }
