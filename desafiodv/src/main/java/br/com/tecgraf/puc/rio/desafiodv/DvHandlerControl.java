@@ -17,6 +17,10 @@ import java.nio.file.Paths;
  */
 public class DvHandlerControl {
 	
+	
+	private Operacao generate = new GenerateMatricula();
+	private Operacao validate = new ValidateMatricula();
+	
 	/**
 	 * Executa o comando informado a partir dos parâmetros
 	 * @param param Parameter parâmetros informados
@@ -49,32 +53,8 @@ public class DvHandlerControl {
 	 */
 	private void generateMatriculasWithDv(String inputFile, String outputFile) throws Exception {
 		
-		String in = Paths.get(inputFile).toAbsolutePath().normalize().toString();
-		String out = Paths.get(outputFile).toAbsolutePath().normalize().toString();
+		processaArquivo(inputFile, outputFile, generate);
 		
-		try (Reader reader = new InputStreamReader(new FileInputStream(in), "UTF-8");
-			 BufferedReader linhas = new BufferedReader(reader);
-			 Writer writer = new OutputStreamWriter(new FileOutputStream(out), "UTF-8");
-			 BufferedWriter	linhasWrite = new BufferedWriter(writer)) {
-			
-			String matricula = null;
-			
-		    while ((matricula = linhas.readLine()) != null) {
-		        String dv = Matricula.calculateDv(matricula);
-		        if (dv != null) {
-		        	linhasWrite.write(matricula + "-" + dv);
-		        	linhasWrite.newLine();
-		        } else {
-		        	linhasWrite.write(matricula + "- matricula inválida");
-		        	linhasWrite.newLine();
-		        }
-		    }
-			
-			
-		} catch (IOException io) {
-			System.err.println("Erro na geração do arquivo de matriculas com DV");
-			throw io;
-		} 
 	}
 	
 	/**
@@ -86,33 +66,36 @@ public class DvHandlerControl {
 	 */
 	private void validateMatriculaWithDv(String inputFile, String outputFile) throws Exception {
 		
+		processaArquivo(inputFile, outputFile, validate);
+	}
+	
+	/**
+	 * Executa o processamento de geração de arquivo com matriculas com DV
+	 * @param inputFile String contendo o path do arquivo com as matriculas sem DV
+	 * @param outputFile String contendo o path do arquivo a ser gerado com as matriculas com DV
+	 * @throws Exception
+	 */
+	private void processaArquivo(String inputFile, String outputFile, Operacao ope) throws Exception {
+		
 		String in = Paths.get(inputFile).toAbsolutePath().normalize().toString();
 		String out = Paths.get(outputFile).toAbsolutePath().normalize().toString();
 		
 		try (Reader reader = new InputStreamReader(new FileInputStream(in), "UTF-8");
-				 BufferedReader linhas = new BufferedReader(reader);
-				 Writer writer = new OutputStreamWriter(new FileOutputStream(out), "UTF-8");
-				 BufferedWriter	linhasWrite = new BufferedWriter(writer)) {
-				
-				String matricula = null;
-				
-			    while ((matricula = linhas.readLine()) != null) {
-			    	
-			    	if (Matricula.isValidDv(matricula)) {
-			    		linhasWrite.write(matricula + " verdadeiro");
-			        	linhasWrite.newLine();
-			    	} else {
-			    		linhasWrite.write(matricula + " falso");
-			        	linhasWrite.newLine();
-			    	}
-			    }
-				
-				
-			} catch (IOException io) {
-				System.err.println("Erro na geração do arquivo de matriculas com DV");
-				throw io;
-			} 
-
+			 BufferedReader linhas = new BufferedReader(reader);
+			 Writer writer = new OutputStreamWriter(new FileOutputStream(out), "UTF-8");
+			 BufferedWriter	linhasWrite = new BufferedWriter(writer)) {
+			
+			String matricula = null;
+			
+		    while ((matricula = linhas.readLine()) != null) {
+		    	ope.executa(linhasWrite, matricula);
+		    }
+			
+			
+		} catch (IOException io) {
+			System.err.println("Erro na geração do arquivo de matriculas com DV");
+			throw io;
+		} 
 	}
 
 }

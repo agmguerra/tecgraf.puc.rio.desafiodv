@@ -7,7 +7,8 @@ package br.com.tecgraf.puc.rio.desafiodv;
  */
 public class Matricula {
 	
-	private static final String[] hexaDv = {"A", "B", "C", "D", "E", "F"};
+	private static final int HEXA_VAL = 16;
+	private static final int MAIOR_NUMERO_HEXA = 9;
 	
 	
 	/**
@@ -20,7 +21,7 @@ public class Matricula {
 	 * Matrícula completa = 9876-E
 	 * 
 	 * @param matricula
-	 * @return o digito verificador
+	 * @return o digito verificador ou null se a matricula informada for inválida
 	 */
 	public static final String calculateDv(String matriculaComDv) {
 		
@@ -40,9 +41,9 @@ public class Matricula {
 				fator--;
 			}
 			
-			int calcDv = val % 16; 
+			int calcDv = val % HEXA_VAL; 
 			
-			dv = (calcDv > 9) ? hexaDv[calcDv - 10] : String.valueOf(calcDv);
+			dv = (calcDv > MAIOR_NUMERO_HEXA) ? Integer.toHexString(calcDv) : String.valueOf(calcDv);
 			
 		} 
 		
