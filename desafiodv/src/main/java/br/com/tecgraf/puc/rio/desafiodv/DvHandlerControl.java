@@ -31,12 +31,12 @@ public class DvHandlerControl {
 		String opt = param.getCommand();
 		switch (opt) {
 			case "-G": {
-				generateMatriculasWithDv(param.getInFilePathName(), param.getOuFilePathName());
+				processaArquivo(param.getInFilePathName(), param.getOuFilePathName(), generate);
 				break;
 			}
 			
 			case "-V": {
-				validateMatriculaWithDv(param.getInFilePathName(), param.getOuFilePathName());
+				processaArquivo(param.getInFilePathName(), param.getOuFilePathName(), validate);
 				break;
 			}
 			default: {
@@ -45,29 +45,6 @@ public class DvHandlerControl {
 		}
 	}
 	
-	/**
-	 * Executa o processamento de geração de arquivo com matriculas com DV
-	 * @param inputFile String contendo o path do arquivo com as matriculas sem DV
-	 * @param outputFile String contendo o path do arquivo a ser gerado com as matriculas com DV
-	 * @throws Exception
-	 */
-	private void generateMatriculasWithDv(String inputFile, String outputFile) throws Exception {
-		
-		processaArquivo(inputFile, outputFile, generate);
-		
-	}
-	
-	/**
-	 * Executa o processmento de validação dos DV's em um arquivo. Gera um arquivo com
-	 * o resultado do processamento informando se a matricula está com o dv correto ou errado
-	 * @param inputFile String contendo o path do arquivo com as matriculas com DV para validar
-	 * @param outputFile String contendo o path do arquivo com as matriculas com DV validadas
-	 * @throws Exception
-	 */
-	private void validateMatriculaWithDv(String inputFile, String outputFile) throws Exception {
-		
-		processaArquivo(inputFile, outputFile, validate);
-	}
 	
 	/**
 	 * Executa o processamento de geração de arquivo com matriculas com DV
@@ -89,6 +66,7 @@ public class DvHandlerControl {
 			
 		    while ((matricula = linhas.readLine()) != null) {
 		    	ope.executa(linhasWrite, matricula);
+		    	linhasWrite.newLine();
 		    }
 			
 			

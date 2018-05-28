@@ -43,7 +43,7 @@ public class Matricula {
 			
 			int calcDv = val % HEXA_VAL; 
 			
-			dv = (calcDv > MAIOR_NUMERO_HEXA) ? Integer.toHexString(calcDv) : String.valueOf(calcDv);
+			dv = (calcDv > MAIOR_NUMERO_HEXA) ? Integer.toHexString(calcDv).toUpperCase() : String.valueOf(calcDv);
 			
 		} 
 		

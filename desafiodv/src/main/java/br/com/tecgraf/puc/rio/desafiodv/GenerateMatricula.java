@@ -9,11 +9,9 @@ public class GenerateMatricula implements Operacao {
 	public void executa(BufferedWriter linhasWrite, String matricula) throws IOException {
 		String dv = Matricula.calculateDv(matricula);
         if (dv != null) {
-        	linhasWrite.write(matricula + "-" + dv);
-        	linhasWrite.newLine();
+        	linhasWrite.write(matricula + "-" + dv);     	
         } else {
         	linhasWrite.write(matricula + "- matricula inválida");
-        	linhasWrite.newLine();
         }
 
 	}
